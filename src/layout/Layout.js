@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import Main from "./components/Main";
-import { Container } from "./home.style";
+import { Container } from "./layout.style";
 
-const Home = () => {
+const Layout = () => {
   return (
     <Container>
       <Sidebar />
@@ -12,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Layout;

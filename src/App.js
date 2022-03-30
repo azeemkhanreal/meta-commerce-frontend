@@ -1,12 +1,15 @@
 import React from "react";
 import { Counter } from "./features/counter/Counter";
-import Home from "./pages/Home/Home";
+import styled from "styled-components";
+import Layout from "./layout/Layout";
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Container className="App">
+      <Layout />
+    </Container>
   );
 }
+
+export const Container = styled.div``;
 
 export default App;

@@ -19,6 +19,7 @@ export const Links = styled.div`
     text-decoration: none;
     color: #000;
     padding-top: 40px;
+    font-size: 14px;
     color: gray;
   }
 `;
