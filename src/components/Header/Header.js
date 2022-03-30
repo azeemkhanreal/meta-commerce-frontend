@@ -5,6 +5,7 @@ import {
   IoHeartOutline,
   IoPersonCircleOutline,
 } from "react-icons/io5";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
         <a href="/">Women</a>
         <a href="/">Kid's</a>
       </Links>
+      <SearchBar />
       {/* Social menu */}
       <SocialLinks>
         <a href="/">
