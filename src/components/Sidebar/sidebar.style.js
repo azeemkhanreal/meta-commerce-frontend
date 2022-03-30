@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 150px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  padding: 80px 0px;
+  padding: 50px 0px;
 `;
 export const Logo = styled.img`
   height: 50px;
