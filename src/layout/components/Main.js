@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header/Header";
 import AdFeature from "../../components/AdFeature/AdFeature";
+import ProductsRow from "../../components/ProductsRow/ProductsRow";
 const Main = () => {
   return (
     <Container>
       <Header />
       <AdFeature />
+      <ProductsRow title="Popular Now" />
     </Container>
   );
 };
