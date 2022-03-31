@@ -8,6 +8,7 @@ export const Container = styled.div`
   position: fixed;
   width: inherit;
   background-color: rgb(250, 250, 250);
+  z-index: 1;
 `;
 export const Links = styled.div`
   a {
