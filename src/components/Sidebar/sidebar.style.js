@@ -7,7 +7,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100vh;
+  position: fixed;
   padding: 50px 0px;
+  background-color: #fff;
 `;
 export const Logo = styled.img`
   height: 50px;

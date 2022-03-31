@@ -5,6 +5,9 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 25px 30px;
   align-items: center;
+  position: fixed;
+  width: inherit;
+  background-color: rgb(250, 250, 250);
 `;
 export const Links = styled.div`
   a {

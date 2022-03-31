@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header/Header";
-import AdFeature from "../../components/AdFeature/AdFeature";
-import ProductsRow from "../../components/ProductsRow/ProductsRow";
+import Men from "../../pages/Men/Men";
 const Main = () => {
   return (
     <Container>
       <Header />
-      <AdFeature />
-      <ProductsRow title="Popular Now" />
+      <Men />
     </Container>
   );
 };
@@ -16,8 +14,10 @@ const Main = () => {
 const Container = styled.div`
   background-color: rgb(250, 250, 250);
   height: 100vh;
-  width: 100%;
+  width: calc(100% - 200px);
   flex: 1;
+  position: absolute;
+  left: 200px;
 `;
 
 export default Main;

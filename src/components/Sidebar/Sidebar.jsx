@@ -7,6 +7,7 @@ const Sidebar = () => {
     <Container className="sidebar">
       <Logo src={logoUrl} alt="" />
       <Links>
+        <a href="/">Explore</a>
         <a href="/">Shirts</a>
         <a href="/">Sweaters</a>
         <a href="/">Hoodies</a>

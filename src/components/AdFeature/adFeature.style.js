@@ -5,6 +5,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 100px;
 `;
 export const Banner = styled.img`
   border-radius: 20px;
