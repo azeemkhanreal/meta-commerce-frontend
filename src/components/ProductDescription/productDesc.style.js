@@ -18,11 +18,11 @@ export const ImgCarousel = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  cursor: pointer;
   img {
     height: 80px;
     margin-right: 20px;
     opacity: 0.5;
+    cursor: pointer;
   }
 `;
 export const RightContainer = styled.div`

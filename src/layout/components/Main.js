@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import ProductDesc from "../../components/ProductDescription/ProductDesc";
 import Men from "../../pages/Men/Men";
@@ -11,6 +12,7 @@ const Main = () => {
       <ProductDesc />
       {/* <Men /> */}
       {/* <Women /> */}
+      <Footer />
     </Container>
   );
 };
