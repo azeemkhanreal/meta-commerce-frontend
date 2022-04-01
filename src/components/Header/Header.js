@@ -6,14 +6,15 @@ import {
   IoPersonCircleOutline,
 } from "react-icons/io5";
 import SearchBar from "../SearchBar/SearchBar";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <Container>
       <Links>
-        <a href="/">Men</a>
-        <a href="/">Women</a>
-        <a href="/">Kid's</a>
+        <NavLink to="/men">Men</NavLink>
+        <NavLink to="/women">Women</NavLink>
+        <NavLink to="/kids">Kid's</NavLink>
       </Links>
       <SearchBar />
       {/* Social menu */}

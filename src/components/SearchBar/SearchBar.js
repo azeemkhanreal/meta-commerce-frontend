@@ -25,6 +25,7 @@ export const SearchInput = styled.div`
   background-color: #fff;
   padding: 10px;
   border-radius: 50px;
+  border: 1px solid rgb(0, 0, 0, 0.1);
   input {
     background-color: none;
     outline: none;

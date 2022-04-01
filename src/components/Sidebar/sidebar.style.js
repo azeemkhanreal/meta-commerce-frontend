@@ -24,6 +24,11 @@ export const Links = styled.div`
     font-size: 14px;
     color: gray;
   }
+  .active {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+  }
 `;
 export const Button = styled.button`
   background-color: #fff;
