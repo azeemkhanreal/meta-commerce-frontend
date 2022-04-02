@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div``;
+const name = "Azeem";
+
 export const ProductDetails = styled.div`
   margin-top: 100px;
   padding: 0px 50px;
   display: flex;
+  margin-left: 200px;
 `;
 export const LeftContainer = styled.div`
+  width: 500px;
   img {
     border-radius: 25px;
+    width: 500px;
     height: 500px;
     cursor: pointer;
-    object-fit: cover;
+    object-fit: contain;
   }
 `;
 export const ImgCarousel = styled.div`

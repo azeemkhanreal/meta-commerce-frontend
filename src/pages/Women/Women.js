@@ -1,14 +1,13 @@
 import React from "react";
-import AdFeature from "../../components/AdFeature/AdFeature";
-import ProductsRow from "../../components/ProductsRow/ProductsRow";
-import { Container } from "../Women/women.style";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import { Container, Content } from "../Women/women.style";
+
 const Women = () => {
   return (
-    <Container>
-      <AdFeature />
-      <ProductsRow title="Popular Now" />
-      <ProductsRow title="Latest Products" />
-      <ProductsRow title="Eid Offer" />
+    <Container className="women">
+      <Content>
+        <Sidebar categories="women" />
+      </Content>
     </Container>
   );
 };

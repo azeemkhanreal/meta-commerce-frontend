@@ -17,12 +17,26 @@ import {
 } from "./productDesc.style";
 import { IoStarHalf, IoStar, IoRemove, IoAddOutline } from "react-icons/io5";
 import ProductsRow from "../ProductsRow/ProductsRow";
+import Sidebar from "../Sidebar/Sidebar";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+
 const ProductDesc = () => {
+  const [product, setProduct] = useState("");
+  const { id } = useParams();
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then((res) => res.json())
+      .then((json) => setProduct(json));
+  }, []);
+
   return (
     <Container>
+      <Sidebar categories="men" />
       <ProductDetails>
         <LeftContainer>
-          <img src="https://picsum.photos/1100/850" alt="" srcset="" />
+          <img src={product.image} alt="" srcset="" />
           <ImgCarousel>
             <img src="https://picsum.photos/650/850" alt="" srcset="" />
             <img src="https://picsum.photos/650/850" alt="" srcset="" />
@@ -31,7 +45,7 @@ const ProductDesc = () => {
         </LeftContainer>
         <RightContainer>
           <Top>
-            <p>Men's Shirt</p>
+            <p>{product.category}</p>
             <Ratings>
               <IoStar />
               <IoStar />
@@ -41,15 +55,11 @@ const ProductDesc = () => {
             </Ratings>
           </Top>
           <ProductDescription>
-            <h1 className="product-title">ANTF Men's Shirt</h1>
-            <h4 className="product-price">$90</h4>
-            <p className="product-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-              commodi molestiae voluptate rem quia eaque fugit nam ducimus
-              deserunt quaerat.
-            </p>
+            <h1 className="product-title">{product.title}</h1>
+            <h4 className="product-price">{product.price}</h4>
+            <p className="product-description">{product.description}</p>
             <p className="product-measurement">
-              <span>Height of Model: </span>189 CM / 74.4" SIZE EUR 50
+              {/* <span>Height of Model: </span>189 CM / 74.4" SIZE EUR 50 */}
             </p>
           </ProductDescription>
           <ProductSizeContainer>

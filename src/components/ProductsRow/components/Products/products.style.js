@@ -8,7 +8,7 @@ export const ProductCard = styled.div`
   width: 220px;
   height: 350px;
   img {
-    object-fit: cover;
+    object-fit: contain;
     width: 180px;
     height: 260px;
     border-radius: 10px;

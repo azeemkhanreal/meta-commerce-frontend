@@ -1,6 +1,8 @@
 import styled from "styled-components";
 export const Container = styled.div`
   background-color: rgb(53, 53, 53);
+  width: calc(100% - 200px);
+  margin-left: 200px;
 `;
 export const FooterContainer = styled.div`
   display: flex;

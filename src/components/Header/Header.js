@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Container>
+    <Container className="header">
       <Links>
         <NavLink to="/men">Men</NavLink>
         <NavLink to="/women">Women</NavLink>

@@ -10,6 +10,8 @@ export const Container = styled.div`
   position: fixed;
   padding: 50px 0px;
   background-color: #fff;
+  box-shadow: 8px 0px 8px -10px rgb(0, 0, 0, 0.5);
+  z-index: 1;
 `;
 export const Logo = styled.img`
   height: 50px;

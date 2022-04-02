@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const Container = styled.div`
   padding: 30px;
+  width: calc(100%-200px);
 `;
 export const ProductRowHeader = styled.div`
   display: flex;
