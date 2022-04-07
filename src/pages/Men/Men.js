@@ -1,26 +1,32 @@
 import React from "react";
-import { Outlet, useOutlet } from "react-router-dom";
-import AdFeature from "../../components/AdFeature/AdFeature";
-import ProductsRow from "../../components/ProductsRow/ProductsRow";
+import styled from "styled-components";
+import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { Container, Content } from "./Men.style";
+import Announcement from "../../components/Announcement";
+import Slider from "../../components/Slider";
+import AdFeature from "../../components/AdFeature/AdFeature";
 const Men = () => {
-  const outlet = useOutlet();
   return (
-    <Container className="men">
-      <Sidebar categories="men" />
-      <Content className="content">
-        {outlet || (
-          <>
-            <AdFeature />
-            <ProductsRow title="Popular Now" />
-            <ProductsRow title="Latest Products" />
-            <ProductsRow title="Eid Offer" />
-          </>
-        )}
-      </Content>
+    <Container>
+      <Sidebar />
+      <Wrapper>
+        <Announcement />
+        <Header />
+        <Slider />
+        <AdFeature title={"Top Picks"} />
+      </Wrapper>
     </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+`;
+const Wrapper = styled.div`
+  width: 100%;
+  width: calc(100vw - 200px);
+  display: flex;
+  flex-direction: column;
+`;
 
 export default Men;
