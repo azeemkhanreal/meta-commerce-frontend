@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 const AdFeature = () => {
   return (
@@ -9,21 +8,21 @@ const AdFeature = () => {
           <CardImage src="https://picsum.photos/350/200" alt="" />
           <CardInfo>
             <CardTitle>T-Shirts</CardTitle>
-            <CardDesc>Under Rs. 799</CardDesc>
+            {/* <CardDesc>Under Rs. 799</CardDesc> */}
           </CardInfo>
         </CardContainer>
         <CardContainer>
           <CardImage src="https://picsum.photos/350/200" alt="" />
           <CardInfo>
             <CardTitle>Jeans</CardTitle>
-            <CardDesc>Under Rs. 799</CardDesc>
+            {/* <CardDesc>Under Rs. 799</CardDesc> */}
           </CardInfo>
         </CardContainer>
         <CardContainer>
           <CardImage src="https://picsum.photos/350/200" alt="" />
           <CardInfo>
             <CardTitle>Accessories</CardTitle>
-            <CardDesc>Under Rs. 799</CardDesc>
+            {/* <CardDesc>Under Rs. 799</CardDesc> */}
           </CardInfo>
         </CardContainer>
       </Wrapper>

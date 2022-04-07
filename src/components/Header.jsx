@@ -2,7 +2,7 @@ import styled from "styled-components";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Avatar from "@mui/material/Avatar";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../components/SearchBar";
 import { Badge } from "@mui/material";
 
 const Header = () => {

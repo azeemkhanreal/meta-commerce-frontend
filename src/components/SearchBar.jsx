@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { IoSearchOutline } from "react-icons/io5";
 const SearchBar = () => {
