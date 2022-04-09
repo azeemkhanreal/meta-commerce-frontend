@@ -7,18 +7,27 @@ import Products from "../components/Products";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import { Outlet, useOutlet } from "react-router-dom";
 const Men = () => {
+  const outlet = useOutlet();
   return (
     <Container>
       <Sidebar />
       <Wrapper>
         <Announcement />
         <Header />
-        <Slider />
-        <Categories />
-        <Products title={"New Arrivals"} />
-        <Products title={"Popular Products"} />
-        <Newsletter />
+        {!outlet ? (
+          <>
+            <Slider />
+            <Categories />
+            <Products title={"New Arrivals"} />
+            <Products title={"Popular Products"} />
+            <Newsletter />
+          </>
+        ) : (
+          <Outlet />
+        )}
+
         <Footer />
       </Wrapper>
     </Container>

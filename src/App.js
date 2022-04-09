@@ -13,6 +13,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useState } from "react";
+import ProductList from "./pages/ProductList";
 
 function App() {
   const [user, setUser] = useState("Azeem");
@@ -22,7 +23,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/men" replace />} />
-          <Route path="/men" element={<Men />} />
+          <Route path="men" element={<Men />}>
+            <Route path="shirt" element={<ProductList category={"shirt"} />} />
+          </Route>
           <Route path="/women" element={<Women />} />
           <Route path="/cart" element={<Cart />} />
           <Route
@@ -34,6 +37,7 @@ function App() {
             element={user ? <Register /> : <Navigate to="/login" replace />}
           />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<h1>"Page Not Found"</h1>} />
         </Routes>
       </Router>

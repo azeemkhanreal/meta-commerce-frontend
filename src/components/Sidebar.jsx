@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import logoUrl from "../assets/images/logo.png";
-
+import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <Container className="sidebar">
       <Wrapper>
         <Logo src={logoUrl} alt="" />
         <Navbar>
-          <Link href="/">Shirts</Link>
+          <Category to="shirt">T-Shirts</Category>
+          {/* <Link href="/">Hoodies</Link>
           <Link href="/">Kurtas</Link>
-          <Link href="/">Kurtas</Link>
+          <Link href="/">Sweater</Link>
+          <Link href="/">Jackets</Link>
+          <Link href="/">Jeans</Link>
+          <Link href="/">Accessories</Link> */}
         </Navbar>
         <Button className="logout">Log out</Button>
       </Wrapper>
@@ -39,10 +43,10 @@ const Navbar = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Link = styled.a`
+const Category = styled(NavLink)`
   text-decoration: none;
   color: #000;
-  padding-top: 40px;
+  padding-top: 15px;
   font-size: 16px;
   color: gray;
   cursor: pointer;
