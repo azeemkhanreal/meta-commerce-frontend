@@ -10,7 +10,13 @@ import {
 import Women from "./pages/Women";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { useState } from "react";
+
 function App() {
+  const [user, setUser] = useState("Azeem");
+
   return (
     <Container>
       <Router>
@@ -19,8 +25,14 @@ function App() {
           <Route path="/men" element={<Men />} />
           <Route path="/women" element={<Women />} />
           <Route path="/cart" element={<Cart />} />
-          {/* <Route path="/login" element={user?<Login />:<Navigate to="/register"/ replace>} />
-          <Route path="/register" element={!user?<Register />:<Navigate to="/login"/>} /> */}
+          <Route
+            path="/login"
+            element={!user ? <Login /> : <Navigate to="/register" replace />}
+          />
+          <Route
+            path="/register"
+            element={user ? <Register /> : <Navigate to="/login" replace />}
+          />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<h1>"Page Not Found"</h1>} />
         </Routes>
