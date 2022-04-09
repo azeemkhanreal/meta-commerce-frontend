@@ -2,7 +2,6 @@ import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoTwitter,
-  IoPaperPlaneOutline,
 } from "react-icons/io5";
 import styled from "styled-components";
 import logoURL from "../assets/images/logo.png";
@@ -106,23 +105,6 @@ const RightContainer = styled.div`
   }
   p {
     font-size: 13px;
-  }
-`;
-const InputButton = styled.div`
-  display: flex;
-  align-items: center;
-  border: 1px solid #fff;
-  width: 230px;
-  margin: 20px 0px;
-  input {
-    height: 30px;
-    border: none;
-    outline: none;
-    padding-left: 10px;
-  }
-  svg {
-    color: #fff;
-    margin-left: 10px;
   }
 `;
 

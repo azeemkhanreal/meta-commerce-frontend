@@ -37,7 +37,7 @@ export const Container = styled.div`
   position: sticky;
   top: 0;
   overflow: auto;
-  z-index: 2;
+  z-index: 4;
 `;
 const Wrapper = styled.div`
   display: flex;

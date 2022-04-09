@@ -22,6 +22,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 30px;
 `;
 export const Title = styled.h1`
   font-size: 70px;

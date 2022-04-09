@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import logoUrl from "../assets/images/logo.png";
-import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
