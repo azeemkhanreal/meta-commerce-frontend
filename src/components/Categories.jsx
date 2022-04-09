@@ -8,21 +8,21 @@ const Categories = () => {
           <Image src="https://picsum.photos/350/200" alt="" />
           <InfoContainer>
             <Title>T-Shirts</Title>
-            {/* <CardDesc>Under Rs. 799</CardDesc> */}
+            <Button>Shop Now</Button>
           </InfoContainer>
         </CategoryItem>
         <CategoryItem>
           <Image src="https://picsum.photos/350/200" alt="" />
           <InfoContainer>
             <Title>Jeans</Title>
-            {/* <CardDesc>Under Rs. 799</CardDesc> */}
+            <Button>Shop Now</Button>
           </InfoContainer>
         </CategoryItem>
         <CategoryItem>
           <Image src="https://picsum.photos/350/200" alt="" />
           <InfoContainer>
             <Title>Accessories</Title>
-            {/* <CardDesc>Under Rs. 799</CardDesc> */}
+            <Button>Shop Now</Button>
           </InfoContainer>
         </CategoryItem>
       </Wrapper>
@@ -43,52 +43,45 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  flex-wrap: wrap;
+  position: relative;
 `;
 const CategoryItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   border: 1px solid lightgray;
   position: relative;
   height: 40vh;
   flex: 1;
-
+  margin: 3px;
+  position: relative;
   cursor: pointer;
+  flex-wrap: wrap;
 `;
 
 const Image = styled.img`
   object-fit: cover;
-  opacity: 0.8;
   width: 100%;
   height: 100%;
 `;
 const InfoContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 10px 0px;
-  text-transform: uppercase;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
 `;
 const Title = styled.h1`
-  padding: 10px 0px;
-  font-size: 32px;
-  font-weight: 800;
-  color: #fff;
+  color: white;
+  margin-bottom: 20px;
 `;
-// const Desc = styled.span`
-//   padding-bottom: 10px;
-//   color: #fff;
-//   font-size: 24px;
-//   font-weight: 800;
-// `;
+const Button = styled.button`
+  border: none;
+  padding: 10px;
+  background-color: #fff;
+  color: gray;
+  cursor: pointer;
+`;
 
 export default Categories;

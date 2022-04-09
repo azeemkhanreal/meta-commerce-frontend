@@ -2,6 +2,7 @@ import { AddOutlined, RemoveOutlined } from "@mui/icons-material";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
+import GoToTop from "../components/GoToTop";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 const Cart = () => {
@@ -99,6 +100,7 @@ const Cart = () => {
         </CartContainer>
         <Footer />
       </Wrapper>
+      <GoToTop />
     </Container>
   );
 };

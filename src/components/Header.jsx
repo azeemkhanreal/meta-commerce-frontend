@@ -4,26 +4,38 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Avatar from "@mui/material/Avatar";
 import SearchBar from "../components/SearchBar";
 import { Badge } from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <Container>
       <Wrapper>
         <Left>
-          <MenuItem>Men</MenuItem>
-          <MenuItem>Women</MenuItem>
-          <MenuItem>Kids</MenuItem>
+          <Link to="/men">
+            <MenuItem>Men</MenuItem>
+          </Link>
+          <Link to="/women">
+            <MenuItem>Women</MenuItem>
+          </Link>
+          <Link to="/kids">
+            <MenuItem>Kids</MenuItem>
+          </Link>
         </Left>
         <Center>
           <SearchBar />
         </Center>
         <Right>
-          <Badge badgeContent={4} color="primary">
-            <FavoriteBorderOutlinedIcon />
-          </Badge>
-          <Badge badgeContent={4} color="primary">
-            <ShoppingCartOutlinedIcon />
-          </Badge>
+          <NavLink to="/wishlist">
+            <Badge badgeContent={4} color="primary">
+              <FavoriteBorderOutlinedIcon />
+            </Badge>
+          </NavLink>
+          <NavLink to="/cart">
+            <Badge badgeContent={4} color="primary">
+              <ShoppingCartOutlinedIcon />
+            </Badge>
+          </NavLink>
+
           <Avatar src="https://picsum.photos/50/50" className="avatar" />
         </Right>
       </Wrapper>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Product from "./Product";
 
@@ -6,19 +7,37 @@ const Products = ({ title }) => {
     <Container>
       <Title>{title}</Title>
       <ProductContainer>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
+        <Link to="/product/1">
+          <Product />
+        </Link>
       </ProductContainer>
     </Container>
   );
 };
 
 const Container = styled.div`
-  padding: 0px 45px;
+  padding: 0px 35px;
 `;
 const ProductContainer = styled.div`
   display: flex;
