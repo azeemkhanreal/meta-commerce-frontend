@@ -7,6 +7,9 @@ export const TOKEN =
 
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
+  headers: {
+    Accept: "application/json",
+  },
 });
 export const userRequest = axios.create({
   baseURL: BASE_URL,

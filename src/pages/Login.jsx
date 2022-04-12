@@ -1,8 +1,19 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import { login } from "../features/apiCalls";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
+  const handleClick = (e) => {
+    e.preventDefault();
+    login(dispatch, { email, password });
+  };
   return (
     <Container>
       <Sidebar />
@@ -11,9 +22,19 @@ const Login = () => {
         <FormContainer>
           <Title>SIGN IN</Title>
           <Form>
-            <Input placeholder="username" />
-            <Input placeholder="password" />
-            <Button>Login</Button>
+            <Input
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="username"
+            />
+            <Input
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+              type="password"
+            />
+            <Button onClick={handleClick} disabled={isFetching}>
+              Login
+            </Button>
+            {error && <Error>Something went wrong ...</Error>}
             <Link>DO YOU REMEMBER THE PASSWORD?</Link>
             <Link>CREATE A NEW ACCOUNT</Link>
           </Form>
@@ -66,11 +87,18 @@ const Button = styled.button`
   color: white;
   margin-bottom: 10px;
   cursor: pointer;
+  &:disabled {
+    color: green;
+    cursor: not-allowed;
+  }
 `;
 const Link = styled.a`
   margin: 10px 0;
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
+`;
+const Error = styled.span`
+  color: red;
 `;
 export default Login;
