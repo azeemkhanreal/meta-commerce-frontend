@@ -9,6 +9,8 @@ import GoToTop from "../components/GoToTop";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { userRequest } from "../constants/requests";
+import { addProduct } from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
@@ -17,7 +19,7 @@ const ProductDetails = () => {
   const [size, setSize] = useState("");
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  console.log(id);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -39,7 +41,9 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     // updateCart
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
+  console.log(size);
 
   return (
     <Container>
@@ -64,11 +68,11 @@ const ProductDetails = () => {
               </Filter>
               <Filter>
                 <FilterTitle>Size</FilterTitle>
-                {product.size?.map((s) => (
-                  <FilterSize onChange={(e) => setSize(e.target.value)}>
-                    <FilterSizeOption key="s">{s}</FilterSizeOption>
-                  </FilterSize>
-                ))}
+                <FilterSize onChange={(e) => setSize(e.target.value)}>
+                  {product.size?.map((s) => (
+                    <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                  ))}
+                </FilterSize>
               </Filter>
             </FilterContainer>
             <AddContainer>

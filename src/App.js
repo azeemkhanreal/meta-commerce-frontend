@@ -1,4 +1,3 @@
-import { Counter } from "./features/counter/Counter";
 import styled from "styled-components";
 import Men from "./pages/Men";
 import {

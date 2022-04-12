@@ -5,8 +5,10 @@ import Avatar from "@mui/material/Avatar";
 import SearchBar from "../components/SearchBar";
 import { Badge } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
   return (
     <Container>
       <Wrapper>
@@ -31,7 +33,7 @@ const Header = () => {
             </Badge>
           </NavLink>
           <NavLink to="/cart">
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={quantity} color="primary">
               <ShoppingCartOutlinedIcon />
             </Badge>
           </NavLink>

@@ -1,11 +1,15 @@
 import { AddOutlined, RemoveOutlined } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import GoToTop from "../components/GoToTop";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
   return (
     <Container>
       <Sidebar />
@@ -24,63 +28,41 @@ const Cart = () => {
           </Top>
           <Bottom>
             <Info>
-              <Product>
-                <ProductDetail>
-                  <Image src="https://picsum.photos/500/500" />
-                  <Details>
-                    <ProductName>
-                      <b>Product: </b> JESSIE THUNDER SHOES
-                    </ProductName>
-                    <ProductId>
-                      <b>ID: </b>232323
-                    </ProductId>
-                    <ProductColor color="black" />
-                    <ProductSize>
-                      <b>Size: </b>37.5
-                    </ProductSize>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <AddOutlined />
-                    <ProductAmount>2</ProductAmount>
-                    <RemoveOutlined />
-                  </ProductAmountContainer>
-                  <ProductPrice>$30</ProductPrice>
-                </PriceDetail>
-              </Product>
+              {cart.products.map((item) => (
+                <Product key={item._id}>
+                  <ProductDetail>
+                    <Image src={item.img} />
+                    <Details>
+                      <ProductName>
+                        <b>Product: </b> {item.title}
+                      </ProductName>
+                      <ProductId>
+                        <b>ID: </b> {item._id}
+                      </ProductId>
+                      <ProductColor color={item.color} />
+                      <ProductSize>
+                        <b>Size: </b> {item.size}
+                      </ProductSize>
+                    </Details>
+                  </ProductDetail>
+                  <PriceDetail>
+                    <ProductAmountContainer>
+                      <AddOutlined />
+                      <ProductAmount>{item.quantity}</ProductAmount>
+                      <RemoveOutlined />
+                    </ProductAmountContainer>
+                    <ProductPrice>{item.price * item.quantity}</ProductPrice>
+                  </PriceDetail>
+                </Product>
+              ))}
+
               <Hr />
-              <Product>
-                <ProductDetail>
-                  <Image src="https://picsum.photos/500/500" />
-                  <Details>
-                    <ProductName>
-                      <b>Product: </b> JESSIE THUNDER SHOES
-                    </ProductName>
-                    <ProductId>
-                      <b>ID: </b>232323
-                    </ProductId>
-                    <ProductColor color="black" />
-                    <ProductSize>
-                      <b>Size: </b>37.5
-                    </ProductSize>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <AddOutlined />
-                    <ProductAmount>2</ProductAmount>
-                    <RemoveOutlined />
-                  </ProductAmountContainer>
-                  <ProductPrice>$30</ProductPrice>
-                </PriceDetail>
-              </Product>
             </Info>
             <Summary>
               <SummaryTitle>ORDER SUMMARY</SummaryTitle>
               <SummaryItem>
                 <SummaryItemText>Subtotal</SummaryItemText>
-                <SummaryItemPrice>$80</SummaryItemPrice>
+                <SummaryItemPrice>{cart.total}</SummaryItemPrice>
               </SummaryItem>
               <SummaryItem>
                 <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -92,7 +74,7 @@ const Cart = () => {
               </SummaryItem>
               <SummaryItem type="total">
                 <SummaryItemText>Total</SummaryItemText>
-                <SummaryItemPrice>$80</SummaryItemPrice>
+                <SummaryItemPrice>{cart.total}</SummaryItemPrice>
               </SummaryItem>
               <SummaryButton>CHECKOUT NOW</SummaryButton>
             </Summary>
