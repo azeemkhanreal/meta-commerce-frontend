@@ -13,7 +13,6 @@ const Slider = () => {
       setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
     }
   };
-  console.log(slideIndex);
 
   return (
     <Container className="slider">

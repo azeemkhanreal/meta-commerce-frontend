@@ -1,24 +1,38 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
-import Footer from "../components/Footer";
 import GoToTop from "../components/GoToTop";
-import Header from "../components/Header";
 import Products from "../components/Products";
 
 const ProductList = () => {
+  const location = useLocation();
+  const category = location.pathname.split("/")[2];
+  const [filters, setFilter] = useState({});
+  const [sort, setSort] = useState("newest");
+  const handleFilters = async (e) => {
+    const value = e.target.value;
+    setFilter({
+      ...filters,
+      [e.target.name]: value,
+    });
+  };
   return (
     <Container>
       <Wrapper>
-        <Title>Dresses</Title>
+        <Title>{category}</Title>
         <FilterContainer>
           <Filter>
             <FilterText>Filter Products: </FilterText>
-            <Select>
+            <Select name="color" onChange={handleFilters}>
               <Option disabled>Color</Option>
-              <Option>White</Option>
-              <Option>Black</Option>
+              <Option>white</Option>
+              <Option>black</Option>
+              <Option>red</Option>
+              <Option>green</Option>
+              <Option>yellow</Option>
+              <Option>blue</Option>
             </Select>
-            <Select>
+            <Select name="size" onChange={handleFilters}>
               <Option disabled>Size</Option>
               <Option>XS</Option>
               <Option>S</Option>
@@ -29,14 +43,14 @@ const ProductList = () => {
           </Filter>
           <Filter>
             <FilterText>Sort Products: </FilterText>
-            <Select>
-              <Option disabled>Newest:</Option>
-              <Option>Price (Asc) </Option>
-              <Option>Price (Desc) </Option>
+            <Select onChange={(e) => setSort(e.target.value)}>
+              <Option value="newest">Newest:</Option>
+              <Option value="asc">Price (Asc) </Option>
+              <Option value="desc">Price (Desc) </Option>
             </Select>
           </Filter>
         </FilterContainer>
-        <Products />
+        <Products category={category} filters={filters} sort={sort} />
       </Wrapper>
       <GoToTop />
     </Container>
@@ -45,7 +59,9 @@ const ProductList = () => {
 
 const Container = styled.div``;
 const Title = styled.h1`
-  padding: 10px;
+  padding: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
 `;
 const Wrapper = styled.div``;
 const FilterContainer = styled.div`
@@ -53,7 +69,9 @@ const FilterContainer = styled.div`
   justify-content: space-between;
 `;
 const Filter = styled.div`
-  margin: 20px;
+  margin: 20px 20px;
+  display: flex;
+  align-items: center;
 `;
 const FilterText = styled.div`
   font-size: 20px;

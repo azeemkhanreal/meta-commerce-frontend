@@ -16,7 +16,7 @@ import { useState } from "react";
 import ProductList from "./pages/ProductList";
 
 function App() {
-  const [user, setUser] = useState("Azeem");
+  const [user, setUser] = useState();
 
   return (
     <Container>
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/men" replace />} />
           <Route path="men" element={<Men />}>
-            <Route path="shirt" element={<ProductList category={"shirt"} />} />
+            <Route path="shirts" element={<ProductList />} />
           </Route>
           <Route path="/women" element={<Women />} />
           <Route path="/cart" element={<Cart />} />

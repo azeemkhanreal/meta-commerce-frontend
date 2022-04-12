@@ -7,7 +7,7 @@ import Products from "../components/Products";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
-import { Outlet, useOutlet } from "react-router-dom";
+import { Outlet, useLocation, useOutlet } from "react-router-dom";
 const Men = () => {
   const outlet = useOutlet();
   return (
@@ -19,7 +19,7 @@ const Men = () => {
         {!outlet ? (
           <>
             <Slider />
-            <Categories />
+            <Categories owner="men" />
             <Products title={"New Arrivals"} />
             <Products title={"Popular Products"} />
             <Newsletter />

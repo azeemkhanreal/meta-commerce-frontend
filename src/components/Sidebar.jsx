@@ -7,7 +7,7 @@ const Sidebar = () => {
       <Wrapper>
         <Logo src={logoUrl} alt="" />
         <Navbar>
-          <Category to="shirt">T-Shirts</Category>
+          <Category to="shirts">T-Shirts</Category>
           {/* <Link href="/">Hoodies</Link>
           <Link href="/">Kurtas</Link>
           <Link href="/">Sweater</Link>
