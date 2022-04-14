@@ -37,7 +37,6 @@ const Header = () => {
               <ShoppingCartOutlinedIcon />
             </Badge>
           </NavLink>
-
           <Avatar src="https://picsum.photos/50/50" className="avatar" />
         </Right>
       </Wrapper>

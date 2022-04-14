@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: null,
+  currentUser: null,
   isFetching: false,
   error: false,
 };
@@ -15,14 +15,18 @@ export const cartSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.isFetching = false;
-      state.user = action.payload;
+      state.currentUser = action.payload;
     },
     loginFailure: (state) => {
       state.isFetching = false;
       state.error = true;
     },
+    removeUser: (state, action) => {
+      state.currentUser = null;
+    },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure } = cartSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, removeUser } =
+  cartSlice.actions;
 export default cartSlice.reducer;

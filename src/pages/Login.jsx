@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Header from "../components/Header";
@@ -6,14 +6,20 @@ import Sidebar from "../components/Sidebar";
 import { login } from "../features/apiCalls";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const dispatch = useDispatch();
-  const { isFetching, error } = useSelector((state) => state.user);
+  const { isFetching, error, currentUser } = useSelector((state) => state.user);
+
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { email, password });
   };
+
+  useEffect(() => {
+    console.log(currentUser);
+  }, [currentUser]);
+
   return (
     <Container>
       <Sidebar />
@@ -21,10 +27,10 @@ const Login = () => {
         <Header />
         <FormContainer>
           <Title>SIGN IN</Title>
-          <Form>
+          <Form onSubmit={handleClick}>
             <Input
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="username"
+              placeholder="email"
             />
             <Input
               onChange={(e) => setPassword(e.target.value)}

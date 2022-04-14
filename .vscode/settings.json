@@ -1,5 +1,4 @@
 {
-    "cSpell.words": [
-        "lightgray"
-    ]
+  "cSpell.words": ["lightgray", "reduxjs"],
+  "cSpell.ignoreWords": ["persistor"]
 }

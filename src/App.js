@@ -11,12 +11,11 @@ import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import { useState } from "react";
 import ProductList from "./pages/ProductList";
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <Container>
       <Router>
@@ -29,9 +28,12 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route
             path="/login"
-            element={!user ? <Login /> : <Navigate to="/" replace />}
+            element={currentUser ? <Navigate to="/" replace /> : <Login />}
           />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/register"
+            element={currentUser ? <Navigate to="/" replace /> : <Register />}
+          />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<h1>"Page Not Found"</h1>} />

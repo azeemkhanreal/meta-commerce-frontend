@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import logoUrl from "../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../features/userSlice";
+
 const Sidebar = () => {
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   return (
     <Container className="sidebar">
       <Wrapper>
@@ -15,7 +21,13 @@ const Sidebar = () => {
           <Link href="/">Jeans</Link>
           <Link href="/">Accessories</Link> */}
         </Navbar>
-        <Button className="logout">Log out</Button>
+        {currentUser ? (
+          <Button onClick={() => dispatch(removeUser())}>Logout</Button>
+        ) : (
+          <NavLink to="/login">
+            <Button>Login</Button>
+          </NavLink>
+        )}
       </Wrapper>
     </Container>
   );
