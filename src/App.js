@@ -1,28 +1,43 @@
-import React from "react";
-import { Counter } from "./features/counter/Counter";
 import styled from "styled-components";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Header from "./components/Header/Header";
-import Men from "./pages/Men/Men";
-import Women from "./pages/Women/Women";
-import ProductDesc from "./components/ProductDescription/ProductDesc";
-import Footer from "./components/Footer/Footer";
+import Men from "./pages/Men";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Women from "./pages/Women";
+import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProductList from "./pages/ProductList";
+import { useSelector } from "react-redux";
+
 function App() {
+  const { currentUser } = useSelector((state) => state.user);
   return (
-    <Container className="App">
+    <Container>
       <Router>
-        <Sidebar />
-        <Header />
-        <Content>
-          <Routes>
-            <Route path="/" element={<p>Home</p>} />
-            <Route path="men" element={<Men />} />
-            <Route path="/women" element={<Women />} />
-            <Route path="/product/:id" element={<ProductDesc />} />
-          </Routes>
-          <Footer />
-        </Content>
+        <Routes>
+          <Route path="/" element={<Navigate to="/men" replace />} />
+          <Route path="men" element={<Men />}>
+            <Route path="shirts" element={<ProductList />} />
+          </Route>
+          <Route path="/women" element={<Women />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/login"
+            element={currentUser ? <Navigate to="/" replace /> : <Login />}
+          />
+          <Route
+            path="/register"
+            element={currentUser ? <Navigate to="/" replace /> : <Register />}
+          />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<h1>"Page Not Found"</h1>} />
+        </Routes>
       </Router>
     </Container>
   );
@@ -30,12 +45,7 @@ function App() {
 
 export const Container = styled.div`
   display: flex;
-`;
-export const Content = styled.div`
-  display: flex;
   flex-direction: column;
-  margin-left: 200px;
-  width: calc(100% - 200px);
 `;
 
 export default App;

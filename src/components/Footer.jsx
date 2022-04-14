@@ -1,22 +1,10 @@
-import React from "react";
 import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoTwitter,
-  IoPaperPlaneOutline,
 } from "react-icons/io5";
-import {
-  Container,
-  FooterBottom,
-  FooterContainer,
-  InputButton,
-  LeftContainer,
-  Links,
-  Nav,
-  RightContainer,
-  SocialLinks,
-} from "./footer.style";
-import logoURL from "../../assets/images/logo.png";
+import styled from "styled-components";
+import logoURL from "../assets/images/logo.png";
 
 const Footer = () => {
   return (
@@ -53,16 +41,8 @@ const Footer = () => {
           </Nav>
         </LeftContainer>
         <RightContainer>
-          <h1>Subscription / Social Networks</h1>
-          <p>
-            Subscribe to the newsletter and social networks to be aware of all
-            the news and promotions
-          </p>
+          <h1>Social Networks</h1>
           <SocialLinks>
-            <InputButton>
-              <input type="text" placeholder="E-mail" />
-              <IoPaperPlaneOutline />
-            </InputButton>
             <a href="/">
               <IoLogoFacebook />
             </a>
@@ -83,5 +63,74 @@ const Footer = () => {
     </Container>
   );
 };
+
+const Container = styled.div`
+  background-color: rgb(53, 53, 53);
+`;
+const FooterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px;
+  height: 300px;
+`;
+const Nav = styled.nav`
+  h1 {
+    color: #fff;
+    font-size: 20px;
+  }
+`;
+const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  a {
+    text-decoration: none;
+    color: #fff;
+    padding: 6px 0px;
+    font-size: 14px;
+  }
+`;
+const LeftContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex: 0.8;
+`;
+const RightContainer = styled.div`
+  width: 400px;
+  color: #fff;
+  h1 {
+    font-size: 25px;
+    padding: 20px 0px;
+  }
+  p {
+    font-size: 13px;
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  align-items: center;
+  a {
+    margin-left: 15px;
+    color: #fff;
+    svg {
+      font-size: 22px;
+    }
+  }
+`;
+const FooterBottom = styled.div`
+  border-top: 2px solid #605c5c;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 30px;
+  color: #fff;
+  img {
+    height: 30px;
+  }
+`;
 
 export default Footer;
