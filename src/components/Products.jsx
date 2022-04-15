@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Product from "./Product";
 import axios from "axios";
 import { TOKEN } from "../constants/requests";
+
 const Products = ({ category, filters, sort, title }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);

@@ -144,6 +144,7 @@ const FilterColor = styled.div`
   background-color: ${(props) => props.color};
   margin: 0px 8px;
   cursor: pointer;
+  border: 1px solid lightgray;
 `;
 const FilterSize = styled.select`
   margin-left: 10px;
