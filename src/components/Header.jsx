@@ -74,10 +74,7 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
               >
-                <Avatar
-                  sx={{ width: 32, height: 32 }}
-                  src="https://picsum.photos/50/50"
-                ></Avatar>
+                <Avatar>A</Avatar>
               </IconButton>
               <Menu
                 anchorEl={anchorEl}
