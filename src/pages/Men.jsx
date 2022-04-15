@@ -6,15 +6,13 @@ import Categories from "../components/Categories";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
-
-const Men = () => {
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Product from "../components/Product";
 import { userRequest } from "../constants/requests";
 import { Outlet, useOutlet } from "react-router-dom";
 import GoToTop from "../components/GoToTop";
-  
+
 const Men = () => {
   const { token } = useSelector((state) => state.user.currentUser);
   const [products, setProducts] = useState([]);
@@ -29,7 +27,7 @@ const Men = () => {
     };
     getProducts();
   }, [token]);
-  
+
   return (
     <Container>
       <Announcement />

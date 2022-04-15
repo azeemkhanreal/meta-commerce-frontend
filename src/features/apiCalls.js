@@ -1,5 +1,5 @@
 import { loginStart, loginSuccess, loginFailure } from "../features/userSlice";
-import { publicRequest, userRequest } from "../constants/requests";
+import { publicRequest } from "../constants/requests";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
