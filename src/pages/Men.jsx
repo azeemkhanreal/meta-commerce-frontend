@@ -6,17 +6,15 @@ import Categories from "../components/Categories";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
-<<<<<<< Updated upstream
 
 const Men = () => {
-=======
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Product from "../components/Product";
 import { userRequest } from "../constants/requests";
 import { Outlet, useOutlet } from "react-router-dom";
 import GoToTop from "../components/GoToTop";
-
+  
 const Men = () => {
   const { token } = useSelector((state) => state.user.currentUser);
   const [products, setProducts] = useState([]);
@@ -31,19 +29,11 @@ const Men = () => {
     };
     getProducts();
   }, [token]);
-
->>>>>>> Stashed changes
+  
   return (
     <Container>
       <Announcement />
       <Header />
-<<<<<<< Updated upstream
-      <Slider />
-      <Categories owner="men" />
-      <Products title={"New Arrivals"} />
-      <Products title={"Popular Products"} />
-      <Newsletter />
-=======
       {/* if there is no outlet */}
       {!outlet && (
         <React.StrictMode>
@@ -85,7 +75,6 @@ const Men = () => {
       )}
       {/* here outlet rendering will be done */}
       <Outlet />
->>>>>>> Stashed changes
       <Footer />
       <GoToTop />
     </Container>
@@ -93,5 +82,18 @@ const Men = () => {
 };
 
 const Container = styled.div``;
+const ProductContainer = styled.div`
+  padding: 20px 45px;
+`;
+const Title = styled.h1`
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+`;
+const ProductList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default Men;

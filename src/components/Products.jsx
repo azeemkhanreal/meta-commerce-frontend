@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "./Product";
-<<<<<<< Updated upstream
-import axios from "axios";
-import { TOKEN } from "../constants/requests";
-=======
 import { userRequest } from "../constants/requests";
-
->>>>>>> Stashed changes
 const Products = ({ category, filters, sort, title }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
