@@ -2,13 +2,13 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 const Categories = () => {
   const location = useLocation();
-  const gender = location.pathname.split("/")[1];
+  const category = location.pathname.split("/")[1];
   return (
     <Container>
       <Heading>Top Picks</Heading>
       <Wrapper>
         <CategoryItem>
-          <Link to={`/${gender}/shirts`}>
+          <Link to="tshirts">
             <Image src="https://picsum.photos/350/200" alt="" />
             <InfoContainer>
               <Title>T-Shirts</Title>
@@ -17,19 +17,19 @@ const Categories = () => {
           </Link>
         </CategoryItem>
         <CategoryItem>
-          <Link to={`/${gender}/shirts`}>
+          <Link to="shirts">
             <Image src="https://picsum.photos/350/200" alt="" />
             <InfoContainer>
-              <Title>T-Shirts</Title>
+              <Title>Shirts</Title>
               <Button>Shop Now</Button>
             </InfoContainer>
           </Link>
         </CategoryItem>
         <CategoryItem>
-          <Link to={`/${gender}/shirts`}>
+          <Link to="jeans">
             <Image src="https://picsum.photos/350/200" alt="" />
             <InfoContainer>
-              <Title>T-Shirts</Title>
+              <Title>Jeans</Title>
               <Button>Shop Now</Button>
             </InfoContainer>
           </Link>
