@@ -5,93 +5,84 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import GoToTop from "../components/GoToTop";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
   return (
     <Container>
-      <Sidebar />
-      <Wrapper>
-        <Announcement />
-        <Header />
-        <CartContainer>
-          <Title>YOUR BAG</Title>
-          <Top>
-            <TopBottom>CONTINUE SHOPPING</TopBottom>
-            <TopTexts>
-              <TopText>Shopping Bag(2)</TopText>
-              <TopText>Your Wishlist</TopText>
-            </TopTexts>
-            <TopBottom type="filled">CHECKOUT NOW</TopBottom>
-          </Top>
-          <Bottom>
-            <Info>
-              {cart.products.map((item) => (
-                <Product key={item._id}>
-                  <ProductDetail>
-                    <Image src={item.img} />
-                    <Details>
-                      <ProductName>
-                        <b>Product: </b> {item.title}
-                      </ProductName>
-                      <ProductId>
-                        <b>ID: </b> {item._id}
-                      </ProductId>
-                      <ProductColor color={item.color} />
-                      <ProductSize>
-                        <b>Size: </b> {item.size}
-                      </ProductSize>
-                    </Details>
-                  </ProductDetail>
-                  <PriceDetail>
-                    <ProductAmountContainer>
-                      <AddOutlined />
-                      <ProductAmount>{item.quantity}</ProductAmount>
-                      <RemoveOutlined />
-                    </ProductAmountContainer>
-                    <ProductPrice>{item.price * item.quantity}</ProductPrice>
-                  </PriceDetail>
-                </Product>
-              ))}
+      <Announcement />
+      <Header />
+      <CartContainer>
+        <Title>YOUR BAG</Title>
+        <Top>
+          <TopBottom>CONTINUE SHOPPING</TopBottom>
+          <TopTexts>
+            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Your Wishlist</TopText>
+          </TopTexts>
+          <TopBottom type="filled">CHECKOUT NOW</TopBottom>
+        </Top>
+        <Bottom>
+          <Info>
+            {cart.products.map((item) => (
+              <Product key={item._id}>
+                <ProductDetail>
+                  <Image src={item.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product: </b> {item.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID: </b> {item._id}
+                    </ProductId>
+                    <ProductColor color={item.color} />
+                    <ProductSize>
+                      <b>Size: </b> {item.size}
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <AddOutlined />
+                    <ProductAmount>{item.quantity}</ProductAmount>
+                    <RemoveOutlined />
+                  </ProductAmountContainer>
+                  <ProductPrice>{item.price * item.quantity}</ProductPrice>
+                </PriceDetail>
+              </Product>
+            ))}
 
-              <Hr />
-            </Info>
-            <Summary>
-              <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-              <SummaryItem>
-                <SummaryItemText>Subtotal</SummaryItemText>
-                <SummaryItemPrice>{cart.total}</SummaryItemPrice>
-              </SummaryItem>
-              <SummaryItem>
-                <SummaryItemText>Estimated Shipping</SummaryItemText>
-                <SummaryItemPrice>$5.90</SummaryItemPrice>
-              </SummaryItem>
-              <SummaryItem>
-                <SummaryItemText>Shipping Discount</SummaryItemText>
-                <SummaryItemPrice>$-5.90</SummaryItemPrice>
-              </SummaryItem>
-              <SummaryItem type="total">
-                <SummaryItemText>Total</SummaryItemText>
-                <SummaryItemPrice>{cart.total}</SummaryItemPrice>
-              </SummaryItem>
-              <SummaryButton>CHECKOUT NOW</SummaryButton>
-            </Summary>
-          </Bottom>
-        </CartContainer>
-        <Footer />
-      </Wrapper>
+            <Hr />
+          </Info>
+          <Summary>
+            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice>{cart.total}</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Estimated Shipping</SummaryItemText>
+              <SummaryItemPrice>$5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemPrice>$-5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice>{cart.total}</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryButton>CHECKOUT NOW</SummaryButton>
+          </Summary>
+        </Bottom>
+      </CartContainer>
+      <Footer />
       <GoToTop />
     </Container>
   );
 };
-const Container = styled.div`
-  display: flex;
-`;
-const Wrapper = styled.div`
-  width: calc(100vw - 200px);
-`;
+const Container = styled.div``;
+
 const CartContainer = styled.div`
   padding: 45px;
 `;

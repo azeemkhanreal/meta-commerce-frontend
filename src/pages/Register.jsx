@@ -1,29 +1,25 @@
 import styled from "styled-components";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
 const Register = () => {
   return (
     <Container>
-      <Sidebar />
-      <Wrapper>
-        <Header />
-        <FormContainer>
-          <Title>CREATE AN ACCOUNT</Title>
-          <Form>
-            <Input placeholder="first name" />
-            <Input placeholder="last name" />
-            <Input placeholder="username" />
-            <Input placeholder="email" />
-            <Input placeholder="password" />
-            <Input placeholder="confirm password" />
-            <Agreement>
-              by creating an account, I consent to the processing of my personal
-              data in accordance with the <b>PRIVACY POLICY</b>
-            </Agreement>
-            <Button>CREATE AN ACCOUNT</Button>
-          </Form>
-        </FormContainer>
-      </Wrapper>
+      <Header />
+      <FormContainer>
+        <Title>CREATE AN ACCOUNT</Title>
+        <Form>
+          <Input placeholder="first name" />
+          <Input placeholder="last name" />
+          <Input placeholder="username" />
+          <Input placeholder="email" />
+          <Input placeholder="password" />
+          <Input placeholder="confirm password" />
+          <Agreement>
+            by creating an account, I consent to the processing of my personal
+            data in accordance with the <b>PRIVACY POLICY</b>
+          </Agreement>
+          <Button>CREATE AN ACCOUNT</Button>
+        </Form>
+      </FormContainer>
     </Container>
   );
 };
@@ -31,16 +27,10 @@ const Register = () => {
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
-`;
-const Wrapper = styled.div`
-  width: calc(100vw - 200px);
-  display: flex;
-  flex-direction: column;
 `;
 const FormContainer = styled.div`
   padding: 20px;
-  height: 100vh;
+  height: 80vh;
   width: 40%;
   background-color: white;
   display: flex;

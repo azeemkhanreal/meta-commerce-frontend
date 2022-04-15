@@ -13,7 +13,6 @@ export const Container = styled.div`
   align-items: center;
   font-weight: 500;
   font-size: 14px;
-  width: 100%;
 `;
 
 export default Announcement;

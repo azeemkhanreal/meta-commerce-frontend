@@ -1,6 +1,5 @@
 import { AddOutlined, RemoveOutlined } from "@mui/icons-material";
 import styled from "styled-components";
-import Sidebar from "../components/Sidebar";
 import Announcement from "../components/Announcement";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -47,64 +46,57 @@ const ProductDetails = () => {
 
   return (
     <Container>
-      <Sidebar />
-      <Wrapper>
-        <Announcement />
-        <Header />
-        <ProductInfo>
-          <ImageContainer>
-            <Image src={product.img} />
-          </ImageContainer>
-          <InfoContainer>
-            <Title>{product.title}</Title>
-            <Desc>{product.desc}</Desc>
-            <Price>$ {product.price}</Price>
-            <FilterContainer>
-              <Filter>
-                <FilterTitle>Color</FilterTitle>
-                {product.color?.map((c) => (
-                  <FilterColor key="c" color={c} onClick={() => setColor(c)} />
+      <Announcement />
+      <Header />
+      <ProductInfo>
+        <ImageContainer>
+          <Image src={product.img} />
+        </ImageContainer>
+        <InfoContainer>
+          <Title>{product.title}</Title>
+          <Desc>{product.desc}</Desc>
+          <Price>$ {product.price}</Price>
+          <FilterContainer>
+            <Filter>
+              <FilterTitle>Color</FilterTitle>
+              {product.color?.map((c) => (
+                <FilterColor key="c" color={c} onClick={() => setColor(c)} />
+              ))}
+            </Filter>
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size?.map((s) => (
+                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
-              </Filter>
-              <Filter>
-                <FilterTitle>Size</FilterTitle>
-                <FilterSize onChange={(e) => setSize(e.target.value)}>
-                  {product.size?.map((s) => (
-                    <FilterSizeOption key={s}>{s}</FilterSizeOption>
-                  ))}
-                </FilterSize>
-              </Filter>
-            </FilterContainer>
-            <AddContainer>
-              <AmountContainer>
-                <RemoveOutlined
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleQuantity("dec")}
-                />
-                <Amount>{quantity}</Amount>
-                <AddOutlined
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleQuantity("inc")}
-                />
-              </AmountContainer>
-              <Button onClick={handleAddToCart}>ADD TO CART</Button>
-            </AddContainer>
-          </InfoContainer>
-        </ProductInfo>
-        <Newsletter />
-        <Footer />
-      </Wrapper>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
+          <AddContainer>
+            <AmountContainer>
+              <RemoveOutlined
+                style={{ cursor: "pointer" }}
+                onClick={() => handleQuantity("dec")}
+              />
+              <Amount>{quantity}</Amount>
+              <AddOutlined
+                style={{ cursor: "pointer" }}
+                onClick={() => handleQuantity("inc")}
+              />
+            </AmountContainer>
+            <Button onClick={handleAddToCart}>ADD TO CART</Button>
+          </AddContainer>
+        </InfoContainer>
+      </ProductInfo>
+      <Newsletter />
+      <Footer />
       <GoToTop />
     </Container>
   );
 };
 
-const Container = styled.div`
-  display: flex;
-`;
-const Wrapper = styled.div`
-  width: calc(100vw - 200px);
-`;
+const Container = styled.div``;
+
 const ProductInfo = styled.div`
   display: flex;
   padding: 50px;

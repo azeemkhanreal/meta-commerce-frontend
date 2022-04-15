@@ -100,7 +100,7 @@ const ImageContainer = styled.div`
   flex: 1;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 `;
 const Image = styled.img`

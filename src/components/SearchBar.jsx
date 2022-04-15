@@ -10,26 +10,21 @@ const SearchBar = () => {
 };
 
 export const Container = styled.div`
-  flex: 0.5;
   text-align: center;
+  width: 100vw;
 `;
 export const Input = styled.input`
   /* width: 300px; */
 `;
 export const SearchInput = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 50px;
-  border: 1px solid rgb(0, 0, 0, 0.1);
   input {
-    background-color: none;
-    outline: none;
-    border: none;
-    padding-left: 5px;
-    text-align: center;
     width: 100%;
+    height: 30px;
+    background-color: whitesmoke;
+    border: none;
+    text-align: center;
+    outline: none;
+    /* box-shadow: 0px 6px 24px -14px rgba(0, 0, 0, 0.5) inset; */
   }
 `;
 export default SearchBar;

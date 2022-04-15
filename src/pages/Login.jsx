@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
 import { login } from "../features/apiCalls";
 
 const Login = () => {
@@ -22,47 +22,39 @@ const Login = () => {
 
   return (
     <Container>
-      <Sidebar />
-      <Wrapper>
-        <Header />
-        <FormContainer>
-          <Title>SIGN IN</Title>
-          <Form onSubmit={handleClick}>
-            <Input
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="email"
-            />
-            <Input
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="password"
-              type="password"
-            />
-            <Button onClick={handleClick} disabled={isFetching}>
-              Login
-            </Button>
-            {error && <Error>Something went wrong ...</Error>}
-            <Link>DO YOU REMEMBER THE PASSWORD?</Link>
-            <Link>CREATE A NEW ACCOUNT</Link>
-          </Form>
-        </FormContainer>
-      </Wrapper>
+      <Header />
+      <FormContainer>
+        <Title>SIGN IN</Title>
+        <Form onSubmit={handleClick}>
+          <Input
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="email"
+          />
+          <Input
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
+            type="password"
+          />
+          <Button onClick={handleClick} disabled={isFetching}>
+            Login
+          </Button>
+          {error && <Error>Something went wrong ...</Error>}
+          <StyledLink to="/forget-password">
+            DO YOU REMEMBER THE PASSWORD?
+          </StyledLink>
+          <StyledLink to="/register">CREATE A NEW ACCOUNT</StyledLink>
+        </Form>
+      </FormContainer>
     </Container>
   );
 };
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
-  display: flex;
-`;
-const Wrapper = styled.div`
-  width: calc(100vw - 200px);
-  display: flex;
-  flex-direction: column;
 `;
 const FormContainer = styled.div`
   padding: 20px;
-  height: 100vh;
+  height: 80vh;
   width: 25%;
   background-color: white;
   display: flex;
@@ -98,7 +90,7 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
-const Link = styled.a`
+const StyledLink = styled(Link)`
   margin: 10px 0;
   font-size: 12px;
   text-decoration: underline;
