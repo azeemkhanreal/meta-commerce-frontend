@@ -1,34 +1,21 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "./Product";
-import axios from "axios";
-import { TOKEN } from "../constants/requests";
-
+import { userRequest } from "../constants/requests";
 const Products = ({ category, filters, sort, title }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
 
-  // filterization of category
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
-          category
-            ? `http://localhost:5000/api/products?category=${category}`
-            : "http://localhost:5000/api/products",
-          {
-            headers: {
-              "Content-Type": "application/json",
-              authorization: `Bearer ${TOKEN}`,
-            },
-          }
-        );
-        setProducts(res.data.data);
+        const res = await userRequest.get(`/products?category=${category}`);
+        setProducts(res.data);
       } catch (error) {}
     };
     getProducts();
   }, [category]);
-  //  filterization of category and size,color
+
   useEffect(() => {
     category &&
       setFilterProducts(
@@ -51,17 +38,18 @@ const Products = ({ category, filters, sort, title }) => {
       setFilterProducts((prev) => [...prev].sort((a, b) => b.price - a.price));
     }
   }, [sort]);
+
   return (
     <Container>
       {!category && <Title>{title}</Title>}
       <ProductContainer>
         {category
-          ? filterProducts?.map((item) => (
-              <Product key={item._id} item={item} />
+          ? filterProducts?.map((product) => (
+              <Product key={product._id} product={product} />
             ))
-          : products
-              .slice(0, 4)
-              ?.map((item) => <Product key={item._id} item={item} />)}
+          : products.map((product) => (
+              <Product key={product._id} product={product} />
+            ))}
       </ProductContainer>
     </Container>
   );
