@@ -4,7 +4,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Avatar from "@mui/material/Avatar";
 import SearchBar from "../components/SearchBar";
 import { Badge, Divider, IconButton, ListItemIcon, Menu } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../assets/images/logo.png";
 import { useState } from "react";
@@ -15,6 +15,7 @@ import { removeUser } from "../features/userSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const quantity = useSelector((state) => state.cart.quantity);
   const { currentUser } = useSelector((state) => state.user);
 
@@ -25,6 +26,12 @@ const Header = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(removeUser());
+    navigate("/login");
   };
   return (
     <Container>
@@ -117,7 +124,7 @@ const Header = () => {
                   Profile
                 </StyledMenuItem>
                 <Divider />
-                <StyledMenuItem onClick={() => dispatch(removeUser())}>
+                <StyledMenuItem onClick={handleLogout}>
                   <ListItemIcon>
                     <Logout fontSize="small" />
                   </ListItemIcon>

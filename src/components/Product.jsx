@@ -5,67 +5,69 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
+  console.log(product);
   return (
     <Container>
-      <Circle />
-      <Image src={product.img} />
-      <Info>
-        <Icon>
-          <ShoppingCartOutlinedIcon />
-        </Icon>
-        <Icon>
-          <Link to={`/product/${product._id}`}>
-            <SearchOutlinedIcon />
-          </Link>
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlinedIcon />
-        </Icon>
-      </Info>
+      <Thumbnail>
+        <Image src={product.img} />
+        <IconsHoverContainer>
+          <Icon>
+            <ShoppingCartOutlinedIcon />
+          </Icon>
+          <Icon>
+            <Link to={`/product/${product._id}`}>
+              <SearchOutlinedIcon />
+            </Link>
+          </Icon>
+          <Icon>
+            <FavoriteBorderOutlinedIcon />
+          </Icon>
+        </IconsHoverContainer>
+      </Thumbnail>
+
+      <Content>
+        <Title>{product.title}</Title>
+        <Desc>{product.desc}</Desc>
+        <Price>&#8377; {product.price}</Price>
+      </Content>
     </Container>
   );
 };
-
-const Info = styled.div`
+const IconsHoverContainer = styled.div`
   opacity: 0;
-  width: 100%;
-  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  z-index: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
+  width: 100%;
   cursor: pointer;
+  margin-top: 0px;
 `;
 const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 250px;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 250px;
   display: flex;
-  background-color: #f5fbfd;
-  align-items: center;
+  flex-direction: column;
   position: relative;
-  &:hover ${Info} {
+  margin: 20px;
+  overflow: hidden;
+  &:hover ${IconsHoverContainer} {
     opacity: 1;
+    margin-top: -68px;
   }
 `;
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
+const Thumbnail = styled.div`
+  overflow: hidden;
 `;
+
 const Image = styled.img`
+  position: relative;
+  width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 0;
+  object-fit: contain;
 `;
 
 const Icon = styled.div`
@@ -78,12 +80,33 @@ const Icon = styled.div`
   justify-content: center;
   cursor: pointer;
   margin: 10px;
-  transition: all 0.5s ease;
+  transition: all 250ms ease;
 
   &:hover {
     background-color: #e9f5f5;
     transform: scale(1.1);
   }
+`;
+const Content = styled.div`
+  position: relative;
+  background-color: #fff;
+  z-index: 2;
+  padding: 15px 5px;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+const Title = styled.h1`
+  font-size: 17px;
+`;
+const Desc = styled.p`
+  font-size: 14px;
+  padding: 5px 0px;
+`;
+const Price = styled.span`
+  font-size: 16px;
+  font-weight: 600;
 `;
 
 export default Product;

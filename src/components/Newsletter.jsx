@@ -17,7 +17,7 @@ const Newsletter = () => {
 
 export const Container = styled.div`
   height: 60vh;
-  background-color: #fcf5f5;
+  background-color: #e2f7ef;
   display: flex;
   align-items: center;
   justify-content: center;

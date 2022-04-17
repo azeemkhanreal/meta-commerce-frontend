@@ -1,7 +1,8 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import styled from "styled-components";
-import slider_image from "../assets/images/model_1.png";
+import model_1 from "../assets/images/model_1.png";
+import model_2 from "../assets/images/model_2.png";
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -22,32 +23,40 @@ const Slider = () => {
       <Wrapper slideIndex={slideIndex} className="wrapper">
         <Slide bg="#f5fafd">
           <InfoContainer>
-            <Title>Armani T-Shirt</Title>
+            <Title>The Summer Sale</Title>
+            <Subtitle>Craziest deals of the season are here!</Subtitle>
             <Desc>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              quod similique magni consequuntur, molestias ab soluta a veritatis
-              quam totam, vero delectus fuga, deserunt quidem. Sequi dolor
-              laudantium est quas.
+              50-90 % OFF* | 10,000+ STYLES | 10+ BRANDS | May 1 - May 5
             </Desc>
             <Button>Show Now</Button>
           </InfoContainer>
           <ImageContainer>
-            <Image src={slider_image} />
+            <Image src={model_2} />
           </ImageContainer>
         </Slide>
-        <Slide bg="#fcf1ed">
+        <Slide bg="#eed400">
           <InfoContainer>
-            <Title>Zaara T-Shirt</Title>
+            <Title>
+              HRX{" "}
+              <Subtitle
+                style={{
+                  textAlign: "initial",
+                  display: "inline-block",
+                  textTransform: "initial",
+                }}
+              >
+                by Hrithik Roshan
+              </Subtitle>
+            </Title>
             <Desc>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              quod similique magni consequuntur, molestias ab soluta a veritatis
-              quam totam, vero delectus fuga, deserunt quidem. Sequi dolor
-              laudantium est quas.
+              The HRX Men's Active T-shirt is a classic you can't go wrong with.
+              This black T-shirt can be worn as it is for a light workout or
+              layered under a shirt for a more casual vibe.
             </Desc>
             <Button>Show Now</Button>
           </InfoContainer>
           <ImageContainer>
-            <Image src={slider_image} />
+            <Image src={model_1} />
           </ImageContainer>
         </Slide>
       </Wrapper>
@@ -67,7 +76,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: ${(props) => props.width};
-  transition: all 1.5s ease;
+  transition: all 1s ease;
   width: 100vw;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
@@ -118,13 +127,19 @@ const InfoContainer = styled.div`
 `;
 const Title = styled.h1`
   text-transform: uppercase;
-  font-size: 70px;
+  font-size: 65px;
+`;
+const Subtitle = styled.h2`
+  text-align: center;
+  padding-top: 15px;
+  font-size: 35px;
+  font-family: "Dancing Script", cursive;
 `;
 const Desc = styled.p`
   text-transform: uppercase;
   margin: 50px 0px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 3px;
 `;
 const Button = styled.button`

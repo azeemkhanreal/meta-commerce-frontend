@@ -60,7 +60,7 @@ const ProductDetails = () => {
             <Filter>
               <FilterTitle>Color</FilterTitle>
               {product.color?.map((c) => (
-                <FilterColor key="c" color={c} onClick={() => setColor(c)} />
+                <FilterColor key={c} color={c} onClick={() => setColor(c)} />
               ))}
             </Filter>
             <Filter>

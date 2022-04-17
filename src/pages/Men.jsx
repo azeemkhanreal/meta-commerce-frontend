@@ -14,19 +14,18 @@ import { Outlet, useOutlet } from "react-router-dom";
 import GoToTop from "../components/GoToTop";
 
 const Men = () => {
-  const { token } = useSelector((state) => state.user.currentUser);
   const [products, setProducts] = useState([]);
   const outlet = useOutlet();
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await userRequest.get("/products");
+        const res = await userRequest.get("/products?sex=male");
         setProducts(res.data);
       } catch (error) {}
     };
     getProducts();
-  }, [token]);
+  }, []);
 
   return (
     <Container>
@@ -91,6 +90,7 @@ const Title = styled.h1`
 `;
 const ProductList = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 `;
 
