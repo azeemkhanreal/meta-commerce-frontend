@@ -14,6 +14,11 @@ import Register from "./pages/Register";
 import ProductList from "./pages/ProductList";
 import { useSelector } from "react-redux";
 import Error404 from "./pages/Error404";
+import Profile from "./pages/profile/Profile";
+import BasicInfo from "./pages/profile/components/BasicInfo";
+import Address from "./pages/profile/components/Address";
+import Order from "./pages/profile/components/Order";
+import ChangePassword from "./pages/profile/components/ChangePassword";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -43,6 +48,12 @@ function App() {
             element={currentUser ? <Navigate to="/" replace /> : <Register />}
           />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="profile" element={<Profile />}>
+            <Route index element={<BasicInfo />} />
+            <Route path="address" element={<Address />} />
+            <Route path="orders" element={<Order />} />
+            <Route path="change-password" element={<ChangePassword />} />
+          </Route>
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

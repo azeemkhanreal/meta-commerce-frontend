@@ -20,7 +20,7 @@ const Men = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await userRequest.get("/products?sex=male");
+        const res = await userRequest.get("/products?sex=men");
         setProducts(res.data);
       } catch (error) {}
     };

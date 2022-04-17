@@ -115,12 +115,15 @@ const Header = () => {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <StyledMenuItem>
-                  <ListItemIcon>
-                    <AccountCircleIcon fontSize="small" />
-                  </ListItemIcon>
-                  Profile
-                </StyledMenuItem>
+                <Link to="/profile">
+                  <StyledMenuItem>
+                    <ListItemIcon>
+                      <AccountCircleIcon fontSize="small" />
+                    </ListItemIcon>
+                    Profile
+                  </StyledMenuItem>
+                </Link>
+
                 <Divider />
                 <StyledMenuItem onClick={handleLogout}>
                   <ListItemIcon>

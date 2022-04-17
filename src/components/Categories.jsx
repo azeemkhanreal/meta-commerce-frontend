@@ -6,8 +6,8 @@ const Categories = ({ cat }) => {
     <Container>
       <Heading>Top Picks</Heading>
       <Wrapper>
-        {cat.map((category) => (
-          <CategoryItem>
+        {cat.map((category,index) => (
+          <CategoryItem key={index}>
             <Image src={category.img} alt="" />
             <InfoContainer>
               <Title>{category.title}</Title>

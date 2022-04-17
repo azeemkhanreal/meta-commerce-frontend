@@ -42,7 +42,6 @@ const ProductDetails = () => {
     // updateCart
     dispatch(addProduct({ ...product, quantity, color, size }));
   };
-  console.log(size);
 
   return (
     <Container>

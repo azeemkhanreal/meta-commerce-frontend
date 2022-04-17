@@ -27,7 +27,6 @@ const Women = () => {
     };
     getProducts();
   }, []);
-  console.log(products);
 
   return (
     <Container>

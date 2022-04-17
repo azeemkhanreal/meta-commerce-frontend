@@ -21,8 +21,8 @@ const Slider = ({ slide }) => {
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper slideIndex={slideIndex} className="wrapper">
-        {slide.map((item) => (
-          <Slide bg={item.bgColor}>
+        {slide.map((item, index) => (
+          <Slide key={index} bg={item.bgColor}>
             <InfoContainer>
               <Title>{item.title}</Title>
               {item.subtitle && <Subtitle>{item.subtitle}</Subtitle>}
