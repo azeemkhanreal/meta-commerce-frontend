@@ -2,14 +2,23 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "./Product";
 import { userRequest } from "../constants/requests";
-const Products = ({ category, filters, sort, title }) => {
+
+const Products = ({ category, filters, sort, title, sex }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await userRequest.get(`/products?category=${category}`);
+        let res;
+        if (sex && category) {
+          res = await userRequest.get(
+            `/products/?sex=${sex}&category=${category}`
+          );
+        } else {
+          res = await userRequest.get(`/products?category=${category}`);
+        }
+        // const res = await userRequest.get(`/products?category=${category}`);
         setProducts(res.data);
       } catch (error) {}
     };

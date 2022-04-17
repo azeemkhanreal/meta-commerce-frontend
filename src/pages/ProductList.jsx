@@ -7,8 +7,10 @@ import Products from "../components/Products";
 const ProductList = () => {
   const location = useLocation();
   const category = location.pathname.split("/")[2];
+  const gender = location.pathname.split("/")[1];
   const [filters, setFilter] = useState({});
   const [sort, setSort] = useState("newest");
+  const [sex, setSex] = useState("");
   const handleFilters = async (e) => {
     const value = e.target.value;
     setFilter({
@@ -50,7 +52,12 @@ const ProductList = () => {
             </Select>
           </Filter>
         </FilterContainer>
-        <Products category={category} filters={filters} sort={sort} />
+        <Products
+          category={category}
+          filters={filters}
+          sort={sort}
+          sex={gender}
+        />
       </Wrapper>
       <GoToTop />
     </Container>

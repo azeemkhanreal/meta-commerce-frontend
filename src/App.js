@@ -26,8 +26,13 @@ function App() {
             <Route path="tshirts" element={<ProductList />} />
             <Route path="jeans" element={<ProductList />} />
           </Route>
-          <Route path="/women" element={<Women />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="women" element={<Women />}>
+            <Route path="tshirts" element={<ProductList />} />
+            <Route path="sarees" element={<ProductList />} />
+            <Route path="jeans" element={<ProductList />} />
+            <Route path="kurtas" element={<ProductList />} />
+          </Route>
+          <Route path="/cart" element={currentUser ? <Cart /> : <Login />} />
           <Route
             path="/login"
             element={currentUser ? <Navigate to="/" replace /> : <Login />}
@@ -37,7 +42,6 @@ function App() {
             element={currentUser ? <Navigate to="/" replace /> : <Register />}
           />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<h1>"Page Not Found"</h1>} />
         </Routes>
       </Router>

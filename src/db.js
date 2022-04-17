@@ -68,12 +68,12 @@ export const womenCategories = [
   },
   {
     title: "Sarees",
-    slug: "saarees",
+    slug: "sarees",
     img: "https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_794,h_660/https://www.lovehappensmag.com/blog/wp-content/uploads/2021/03/woman-wearing-a-saree-794x660.jpg",
   },
   {
     title: "Jeans",
-    slug: "tshirts",
+    slug: "jeans",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KfUHpTFhJJcC7HHNDkCH9KWuSV32ZTY5kw&usqp=CAU",
   },
   {

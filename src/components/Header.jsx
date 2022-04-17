@@ -62,11 +62,9 @@ const Header = () => {
           </StyledLink>
         </Center>
         <Right>
-          <NavLink to="/wishlist">
-            <Badge badgeContent={4} color="primary">
-              <FavoriteBorderOutlinedIcon />
-            </Badge>
-          </NavLink>
+          <Badge badgeContent={0} color="primary">
+            <FavoriteBorderOutlinedIcon />
+          </Badge>
           <NavLink to="/cart">
             <Badge badgeContent={quantity} color="primary">
               <ShoppingCartOutlinedIcon />
