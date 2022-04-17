@@ -56,7 +56,7 @@ export const menCategories = [
   },
   {
     title: "Jeans",
-    slug: "tshirts",
+    slug: "jeans",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj2l6S1XfsA-6QTBxB02kJnkLhit7tNHqJRNWp6v7DOorZmoGZPOjIxX-zQ48l7sqEEBQ&usqp=CAU",
   },
 ];
