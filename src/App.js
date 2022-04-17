@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProductList from "./pages/ProductList";
 import { useSelector } from "react-redux";
+import Error404 from "./pages/Error404";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -42,7 +43,7 @@ function App() {
             element={currentUser ? <Navigate to="/" replace /> : <Register />}
           />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="*" element={<h1>"Page Not Found"</h1>} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
     </Container>
