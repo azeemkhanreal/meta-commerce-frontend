@@ -11,7 +11,7 @@ import Product from "../components/Product";
 import { userRequest } from "../constants/requests";
 import { Outlet, useOutlet } from "react-router-dom";
 import GoToTop from "../components/GoToTop";
-import { menSlider } from "../db";
+import { menCategories, menSlider } from "../db";
 
 const Men = () => {
   const [products, setProducts] = useState([]);
@@ -35,7 +35,7 @@ const Men = () => {
       {!outlet && (
         <React.StrictMode>
           <Slider slide={menSlider} />
-          <Categories />
+          <Categories cat={menCategories} />
           <ProductContainer>
             <Title>Top T-Shirts</Title>
             <ProductList>

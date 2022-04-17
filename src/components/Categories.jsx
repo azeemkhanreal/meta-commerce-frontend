@@ -1,50 +1,22 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Categories = () => {
+const Categories = ({ cat }) => {
   return (
     <Container>
       <Heading>Top Picks</Heading>
       <Wrapper>
-        <CategoryItem>
-          <Discount>Up to 15% off</Discount>
-          <Image
-            src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/12/attachment_51396615.jpg?auto=format&q=60&fit=max&w=930"
-            alt=""
-          />
-          <InfoContainer>
-            <Title>T-Shirts</Title>
-            <Link to="tshirts">
-              <Button>Shop Now</Button>
-            </Link>
-          </InfoContainer>
-        </CategoryItem>
-        <CategoryItem>
-          <Discount>Up to 40-60% off</Discount>
-          <Image
-            src="https://imgmedia.lbb.in/media/2020/05/5eac0e7c833b2b7acdc583b2_1588334204878.jpg"
-            alt=""
-          />
-          <InfoContainer>
-            <Title>Shirts</Title>
-            <Link to="shirts">
-              <Button>Shop Now</Button>
-            </Link>
-          </InfoContainer>
-        </CategoryItem>
-        <CategoryItem>
-          <Discount>Up to 40-60% off</Discount>
-          <Image
-            src="https://media.istockphoto.com/photos/textured-background-with-variety-of-mens-and-womens-blue-jeans-picture-id1182646775?k=20&m=1182646775&s=612x612&w=0&h=Q2fQeuR16GXvP0eGN8SwfGM4k5XzJ5zs1Eg-Ayyzrco="
-            alt=""
-          />
-          <InfoContainer>
-            <Title>Jeans</Title>
-            <Link to="jeans">
-              <Button>Shop Now</Button>
-            </Link>
-          </InfoContainer>
-        </CategoryItem>
+        {cat.map((category) => (
+          <CategoryItem>
+            <Image src={category.img} alt="" />
+            <InfoContainer>
+              <Title>{category.title}</Title>
+              <Link to={category.slug}>
+                <Button>Shop Now</Button>
+              </Link>
+            </InfoContainer>
+          </CategoryItem>
+        ))}
       </Wrapper>
     </Container>
   );
