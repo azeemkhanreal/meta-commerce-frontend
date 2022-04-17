@@ -3,10 +3,12 @@ import { Button } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import SaveAsOutlinedIcon from "@mui/icons-material/SaveAsOutlined";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const BasicInfo = () => {
+  const { currentUser } = useSelector((state) => state.user);
   const [user, setUser] = useState({
-    name: "Azeem Ahmad Khan",
+    name: `${currentUser.firstname} ${currentUser.lastname}`,
   });
   const [editToggle, setEditToggle] = useState(false);
 

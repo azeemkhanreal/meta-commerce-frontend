@@ -79,7 +79,7 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
               >
-                <Avatar>A</Avatar>
+                <Avatar>{currentUser.firstname.slice(0, 1)}</Avatar>
               </IconButton>
               <Menu
                 anchorEl={anchorEl}

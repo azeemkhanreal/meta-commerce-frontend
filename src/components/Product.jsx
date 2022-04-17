@@ -3,14 +3,21 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../features/cartSlice";
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    // updateCart
+    // dispatch(addProduct(product));
+  };
   return (
     <Container>
       <Thumbnail>
         <Image src={product.img} />
         <IconsHoverContainer>
-          <Icon>
+          <Icon onClick={handleAddToCart}>
             <ShoppingCartOutlinedIcon />
           </Icon>
           <Icon>
