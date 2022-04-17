@@ -7,11 +7,11 @@ import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import Product from "../components/Product";
 import { userRequest } from "../constants/requests";
 import { Outlet, useOutlet } from "react-router-dom";
 import GoToTop from "../components/GoToTop";
+import { menSlider } from "../db";
 
 const Men = () => {
   const [products, setProducts] = useState([]);
@@ -34,7 +34,7 @@ const Men = () => {
       {/* if there is no outlet */}
       {!outlet && (
         <React.StrictMode>
-          <Slider />
+          <Slider slide={menSlider} />
           <Categories />
           <ProductContainer>
             <Title>Top T-Shirts</Title>

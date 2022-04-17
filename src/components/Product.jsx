@@ -5,7 +5,6 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  console.log(product);
   return (
     <Container>
       <Thumbnail>

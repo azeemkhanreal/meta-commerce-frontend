@@ -4,7 +4,7 @@ import styled from "styled-components";
 import model_1 from "../assets/images/model_1.png";
 import model_2 from "../assets/images/model_2.png";
 
-const Slider = () => {
+const Slider = ({ slide }) => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleClick = (direction) => {
@@ -21,33 +21,32 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper slideIndex={slideIndex} className="wrapper">
-        <Slide bg="#f5fafd">
-          <InfoContainer>
-            <Title>The Summer Sale</Title>
-            <Subtitle>Craziest deals of the season are here!</Subtitle>
-            <Desc>
-              50-90 % OFF* | 10,000+ STYLES | 10+ BRANDS | May 1 - May 5
-            </Desc>
-            <Button>Show Now</Button>
-          </InfoContainer>
-          <ImageContainer>
-            <Image src={model_2} />
-          </ImageContainer>
-        </Slide>
+        {slide.map((item) => (
+          <Slide bg={item.bgColor}>
+            <InfoContainer>
+              <Title>{item.title}</Title>
+              {item.subtitle && <Subtitle>{item.subtitle}</Subtitle>}
+              <Desc>{item.description}</Desc>
+              <Button>Show Now</Button>
+            </InfoContainer>
+            <ImageContainer>
+              <Image src={item.img} />
+            </ImageContainer>
+          </Slide>
+        ))}
+
         <Slide bg="#eed400">
           <InfoContainer>
-            <Title>
-              HRX{" "}
-              <Subtitle
-                style={{
-                  textAlign: "initial",
-                  display: "inline-block",
-                  textTransform: "initial",
-                }}
-              >
-                by Hrithik Roshan
-              </Subtitle>
-            </Title>
+            <Title>HRX </Title>
+            <Subtitle
+              style={{
+                textAlign: "initial",
+                display: "inline-block",
+                textTransform: "initial",
+              }}
+            >
+              by Hrithik Roshan
+            </Subtitle>
             <Desc>
               The HRX Men's Active T-shirt is a classic you can't go wrong with.
               This black T-shirt can be worn as it is for a light workout or
