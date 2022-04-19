@@ -5,7 +5,7 @@ import {
 } from "react-icons/io5";
 import styled from "styled-components";
 import logoURL from "../assets/images/logo.png";
-
+import { mobile } from "../responsive";
 const Footer = () => {
   return (
     <Container>
@@ -73,11 +73,13 @@ const FooterContainer = styled.div`
   justify-content: space-between;
   padding: 70px;
   height: 300px;
+  ${mobile({ flexWrap: "wrap", height: "initial", padding: "30px" })}
 `;
 const Nav = styled.nav`
   h1 {
     color: #fff;
     font-size: 20px;
+    ${mobile({ fontSize: "17px" })};
   }
 `;
 const Links = styled.div`
@@ -89,12 +91,14 @@ const Links = styled.div`
     color: #fff;
     padding: 6px 0px;
     font-size: 14px;
+    ${mobile({ fontSize: "13px" })};
   }
 `;
 const LeftContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex: 0.8;
+  ${mobile({ flex: "1", justifyContent: "space-between" })}
 `;
 const RightContainer = styled.div`
   width: 400px;
@@ -102,6 +106,7 @@ const RightContainer = styled.div`
   h1 {
     font-size: 25px;
     padding: 20px 0px;
+    ${mobile({ fontSize: "18px", padding: " 18px 0px", textAlign: "center" })}
   }
   p {
     font-size: 13px;
@@ -111,16 +116,18 @@ const RightContainer = styled.div`
 const SocialLinks = styled.div`
   display: flex;
   align-items: center;
+  ${mobile({ justifyContent: "center" })}
   a {
     margin-left: 15px;
     color: #fff;
+    ${mobile({ margin: " 0px 8px" })}
     svg {
       font-size: 22px;
     }
   }
 `;
 const FooterBottom = styled.div`
-  border-top: 2px solid #605c5c;
+  border-top: 1px solid #605c5c;
   width: 100%;
   display: flex;
   align-items: center;
@@ -128,8 +135,13 @@ const FooterBottom = styled.div`
   height: 30px;
   padding: 30px;
   color: #fff;
+  ${mobile({ height: "20px", padding: "20px" })};
+  p {
+    ${mobile({ fontSize: "12px" })}
+  }
   img {
     height: 30px;
+    ${mobile({ height: "28px" })}
   }
 `;
 

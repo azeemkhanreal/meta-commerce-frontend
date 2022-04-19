@@ -5,6 +5,7 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import GoToTop from "../components/GoToTop";
 import Header from "../components/Header";
+import { mobile } from "../responsive";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -85,15 +86,19 @@ const Container = styled.div``;
 
 const CartContainer = styled.div`
   padding: 45px;
+  ${mobile({ padding: "20px" })}
 `;
 const Title = styled.h1`
   font-weight: 300;
   text-align: center;
+  ${mobile({ fontSize: "18px" })}
 `;
 const Top = styled.div`
   display: flex;
   align-items: center;
   padding: 20px;
+  ${mobile({ padding: "18px 0px" })}
+
   justify-content: space-between;
 `;
 const TopBottom = styled.button`
@@ -105,7 +110,9 @@ const TopBottom = styled.button`
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
 `;
-const TopTexts = styled.div``;
+const TopTexts = styled.div`
+  ${mobile({ display: "none" })}
+`;
 const TopText = styled.div`
   text-decoration: underline;
   cursor: pointer;
@@ -118,15 +125,22 @@ const Info = styled.div`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  ${mobile({
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  })}
 `;
 const Image = styled.img`
   width: 200px;
@@ -151,6 +165,11 @@ const PriceDetail = styled.span`
   display: flex;
   align-items: center;
   flex-direction: column;
+  ${mobile({
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: "20px",
+  })}
 `;
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -160,6 +179,7 @@ const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  ${mobile({ marginBottom: "0px" })}
 `;
 const ProductAmount = styled.div`
   font-size: 24px;
@@ -179,6 +199,7 @@ const Summary = styled.div`
 `;
 const SummaryTitle = styled.h1`
   font-weight: 200;
+  ${mobile({ fontSize: "22px", textAlign: "center" })}
 `;
 const SummaryItem = styled.div`
   margin: 30px 0px;

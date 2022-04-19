@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import imgUrl from "../assets/images/404.png";
+import { mobile } from "../responsive";
 
 const Error404 = () => {
   return (
@@ -30,6 +31,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 80vh;
+  ${mobile({ height: "50vh" })}
 `;
 const Image = styled.img`
   height: 200px;

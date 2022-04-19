@@ -12,6 +12,8 @@ import { Logout } from "@mui/icons-material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
 import { removeUser } from "../features/userSlice";
+import { mobile } from "../responsive";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -72,7 +74,7 @@ const Header = () => {
           </NavLink>
           {currentUser ? (
             <>
-              <IconButton
+              <StyledIconButton
                 onClick={handleClick}
                 size="small"
                 aria-controls={open ? "account-menu" : undefined}
@@ -80,7 +82,7 @@ const Header = () => {
                 aria-expanded={open ? "true" : undefined}
               >
                 <Avatar>{currentUser.firstname.slice(0, 1)}</Avatar>
-              </IconButton>
+              </StyledIconButton>
               <Menu
                 anchorEl={anchorEl}
                 id="account-menu"
@@ -134,7 +136,9 @@ const Header = () => {
               </Menu>
             </>
           ) : (
-            <Link to="/login">Login</Link>
+            <NavLink to="/login">
+              <LoginOutlinedIcon />
+            </NavLink>
           )}
         </Right>
       </Top>
@@ -150,7 +154,7 @@ export const Container = styled.div`
   width: 100%;
   position: sticky;
   top: 0;
-  overflow: auto;
+  overflow: hidden;
   z-index: 4;
 `;
 const Top = styled.div`
@@ -159,18 +163,22 @@ const Top = styled.div`
   align-items: center;
   padding: 10px 20px;
   border: 1px solid lightgray;
+  ${mobile({ padding: " 10px" })}
 `;
 const Left = styled.div`
   margin-left: 20px;
+  ${mobile({ marginLeft: "5px" })};
 `;
 const Logo = styled.img`
   width: 50px;
+  ${mobile({ width: "45px" })}
   object-fit: contain;
 `;
 const MenuItem = styled.div`
   margin-left: 20px;
   transition: all 0.2s ease;
   cursor: pointer;
+  ${mobile({ marginLeft: "15px" })}
 `;
 const Center = styled.div`
   flex: 1;
@@ -184,11 +192,13 @@ const Right = styled.div`
   align-items: center;
   padding: 0px 10px;
   gap: 15px;
+  ${mobile({ gap: "9px", padding: "0px", justifyContent: "initial" })}
   .avatar {
     cursor: pointer;
   }
 `;
 const StyledLink = styled(NavLink)`
+  ${mobile({ fontSize: "15px" })}
   &.active {
     transform: scale(1.2);
     font-weight: 600;
@@ -200,5 +210,14 @@ const StyledMenuItem = styled(MenuItem)`
   margin: 0px;
   display: flex;
   align-items: center;
+`;
+const StyledIconButton = styled(IconButton)`
+  .MuiAvatar-root {
+    ${mobile({
+      width: "30px",
+      height: "30px",
+      fontSize: "17px",
+    })}
+  }
 `;
 export default Header;

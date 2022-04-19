@@ -1,10 +1,10 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import SaveAsOutlinedIcon from "@mui/icons-material/SaveAsOutlined";
 import styled from "styled-components";
 import { userRequest } from "../../../constants/requests";
 import { useSelector } from "react-redux";
+import { mobile } from "../../../responsive";
 
 const ChangePassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -80,6 +80,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
+  ${mobile({ width: "initial" })}
 `;
 const Top = styled.div`
   display: flex;

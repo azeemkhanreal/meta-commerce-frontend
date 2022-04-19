@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { NavLink, Outlet } from "react-router-dom";
+import { mobile } from "../../responsive";
 
 const Profile = () => {
   return (
@@ -52,9 +53,11 @@ const ProfileWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ height: "initial" })}
 `;
 const ProfileContainer = styled.div`
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 const Sidebar = styled.div`
   display: flex;
@@ -63,6 +66,7 @@ const Sidebar = styled.div`
   background-color: #326262;
   width: 190px;
   align-items: center;
+  ${mobile({ width: "initial" })}
 `;
 const StyledLink = styled(NavLink)`
   padding: 7px;
@@ -77,5 +81,6 @@ const StyledLink = styled(NavLink)`
 const Content = styled.div`
   height: 400px;
   border: 1px solid lightgray;
+  ${mobile({ height: "initial" })}
 `;
 export default Profile;

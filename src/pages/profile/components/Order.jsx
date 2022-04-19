@@ -1,7 +1,5 @@
-import { Button } from "@mui/material";
-import { useState } from "react";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import styled from "styled-components";
+import { mobile } from "../../../responsive";
 
 const Order = () => {
   return (
@@ -18,6 +16,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
+  ${mobile({ width: "initial" })}
 `;
 const Top = styled.div`
   display: flex;

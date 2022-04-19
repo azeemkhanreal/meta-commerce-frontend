@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import { userRequest } from "../constants/requests";
 import { addProduct } from "../features/cartSlice";
 import { useDispatch } from "react-redux";
+import { mobile } from "../responsive";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
@@ -99,6 +100,7 @@ const Container = styled.div``;
 const ProductInfo = styled.div`
   display: flex;
   padding: 50px;
+  ${mobile({ padding: "25px", flexDirection: "column" })}
 `;
 const ImageContainer = styled.div`
   flex: 1;
@@ -107,10 +109,12 @@ const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: contain;
+  ${mobile({ height: "45vh" })}
 `;
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
+  ${mobile({ padding: "12px 25px" })}
 `;
 const Title = styled.h1`
   font-weight: 200;
@@ -127,6 +131,7 @@ const FilterContainer = styled.div`
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
+  ${mobile({ margin: "16px 0px", width: "100%" })}
 `;
 const Filter = styled.div`
   display: flex;
@@ -156,6 +161,7 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${mobile({ width: "100%" })}
 `;
 const AmountContainer = styled.div`
   display: flex;

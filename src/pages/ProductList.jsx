@@ -3,14 +3,13 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GoToTop from "../components/GoToTop";
 import Products from "../components/Products";
-
+import { mobile } from "../responsive";
 const ProductList = () => {
   const location = useLocation();
   const category = location.pathname.split("/")[2];
   const gender = location.pathname.split("/")[1];
   const [filters, setFilter] = useState({});
   const [sort, setSort] = useState("newest");
-  const [sex, setSex] = useState("");
   const handleFilters = async (e) => {
     const value = e.target.value;
     setFilter({
@@ -69,21 +68,25 @@ const Title = styled.h1`
   padding: 20px;
   font-size: 24px;
   text-transform: uppercase;
+  ${mobile({ fontSize: "18px", fontWeight: "normal" })}
 `;
 const Wrapper = styled.div``;
 const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexWrap: "wrap" })}
 `;
 const Filter = styled.div`
   margin: 20px 20px;
   display: flex;
   align-items: center;
+  ${mobile({ margin: "5px 22px" })}
 `;
 const FilterText = styled.div`
   font-size: 20px;
   font-weight: 600;
   margin-right: 20px;
+  ${mobile({ fontSize: "16px" })}
 `;
 const Select = styled.select`
   padding: 10px;

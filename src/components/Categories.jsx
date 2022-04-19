@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Categories = ({ cat }) => {
   return (
     <Container>
       <Heading>Top Picks</Heading>
       <Wrapper>
-        {cat.map((category,index) => (
+        {cat.map((category, index) => (
           <CategoryItem key={index}>
             <Image src={category.img} alt="" />
             <InfoContainer>
@@ -24,18 +25,21 @@ const Categories = ({ cat }) => {
 
 const Container = styled.div`
   padding: 45px;
+  ${mobile({ padding: "20px" })}
 `;
 const Heading = styled.h1`
   font-size: 26px;
   font-weight: 400;
   margin-bottom: 20px;
   text-transform: uppercase;
+  ${mobile({ fontSize: "20px" })}
 `;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  ${mobile({ flexWrap: "wrap" })}
 `;
 const Image = styled.img`
   object-fit: cover;
@@ -55,25 +59,13 @@ const CategoryItem = styled.div`
   position: relative;
   overflow: hidden;
   box-shadow: 0px 14px 30px -8px rgba(0, 0, 0, 0.5);
+  ${mobile({ margin: " 15px 0px" })}
   &:hover {
     ${Image} {
       transform: scale(1.1);
       transition: transform 0.5s ease;
     }
   }
-`;
-const Discount = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 18px;
-  height: 50px;
-  padding: 0px 20px;
-  background-color: #000;
-  position: absolute;
-  top: -50px;
-  right: 0;
 `;
 
 const InfoContainer = styled.div`

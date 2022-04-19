@@ -2,7 +2,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import styled from "styled-components";
 import model_1 from "../assets/images/model_1.png";
-import model_2 from "../assets/images/model_2.png";
+import { mobile } from "../responsive";
 
 const Slider = ({ slide }) => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -71,6 +71,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   position: relative;
+  ${mobile({ display: "none" })}
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -103,6 +104,7 @@ const Arrow = styled.div`
   right: ${(props) => props.direction === "right" && "10px"};
   opacity: 0.5;
   z-index: 2;
+  ${mobile({ width: "30px", height: "30px" })};
 `;
 const ImageContainer = styled.div`
   flex: 1;
